@@ -1,6 +1,6 @@
 <mat-toolbar class="custom-toolbar">
     <div class="left-section">
-        <button class="book-button"><img class="logo" src="education.svg" alt="BookStore"></button>
+        <button class="book-button"><img class="logo" src="education.svg" alt="BookStore" (click)="goToHome()"></button>
         <span class="title">BookStore</span>
         <div class="Search-field">
         <mat-icon>search</mat-icon>
@@ -9,13 +9,19 @@
     </div>
     <div class="right-section">
         <div>
-            <button class="icons">
+            <button>
+                <div class="iconlabel">
             <mat-icon>person_outline</mat-icon>
-        </button>
+            <span class="label">Profile</span>
+                </div>
+            </button>
         </div>
     <div>
-        <button class="icons">
+        <button>
+                <div class="iconlabel">
             <mat-icon>shopping_cart</mat-icon>
-        </button></div>
+            <span class="label">Cart</span>
+                </div>
+            </button></div>
     </div>
 </mat-toolbar>

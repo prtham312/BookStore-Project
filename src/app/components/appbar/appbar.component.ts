@@ -3,6 +3,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule } from '@angular/material/input';
 import { MatFormField } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appbar',
@@ -11,5 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './appbar.component.css'
 })
 export class AppbarComponent {
-
+constructor(private router : Router){}
+  goToHome(){
+    this.router.navigate(['/home'])
+  }
 }

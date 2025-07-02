@@ -1,1 +1,64 @@
-<p>login-signup works!</p>
+<div class="login-modal">
+    <mat-card class="login-card" (click)="$event.stopPropagation()">
+        <div class="login-left">
+            <img src="component.png" alt="Login Image" class="login-image" />
+            <span class="image-label">Online Book Shopping</span>
+        </div>
+        <div class="login-right">
+            
+                <mat-tab-group [(selectedIndex)]="selectedTabIndex" class="auth-tab-group">
+
+                    <mat-tab label="LOGIN">
+                        <form [formGroup] = "loginForm" (ngSubmit)="onLoginSubmit()">
+                        <div class="form-wrapper">
+                            <mat-form-field appearance="outline" class="auth-field">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput formControlName="email" />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="auth-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hidepassword ? 'password' : 'text'"  formControlName="password"/>
+                    <mat-icon matSuffix (click)="hidepassword = !hidepassword" tabindex="-1">
+                    <mat-icon>{{ hidepassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </mat-icon>
+                </mat-form-field>
+                <div class="forgot-password" (click)="forgot()" >Forgot Password?</div>
+                <button mat-flat-button type="submit" color="warn" class="auth-button">Login</button>
+                <div class="divider">OR</div>
+                <div class="social-buttons">
+                    <button mat-raised-button color="primary" class="social-btn">Facebook</button>
+                    <button mat-raised-button class="social-btn google-btn">Google</button>
+                </div>
+                        </div>
+                        </form>
+                    </mat-tab>
+                    <mat-tab label="SIGNUP">
+                        <form [formGroup] = "signupForm" (ngSubmit)="onSignupSubmit()">
+                        <div class="form-wrapper">
+                            <mat-form-field appearance="outline" class="auth-field">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput formControlName="fullName" />
+                </mat-form-field>
+                            <mat-form-field appearance="outline" class="auth-field">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput formControlName="email" />
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="auth-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hidepassword ? 'password' : 'text' " formControlName="password"/>
+                    <mat-icon matSuffix (click)="hidepassword = !hidepassword" tabindex="-1">
+                    <mat-icon>{{ hidepassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="auth-field">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phoneNumber" />
+                </mat-form-field>
+                <button mat-flat-button type="submit" color="warn" class="auth-button">Signup</button>
+                        </div>
+                        </form>
+                    </mat-tab>
+                </mat-tab-group>
+        </div>
+    </mat-card>
+</div>
