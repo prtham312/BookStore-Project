@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div class="Book-Label">
+    <span><span class="Book-Label-Name">Books</span> ({{bookCount()}} items)</span>
+</div>
+<div class="book-grid">
+    <mat-card  class="book-card" *ngFor="let book of paginatedBooks" (click)="openBook(book._id)">
+        <img
+        [src]="book.bookImage || '/book.png'"
+        class="book-image"
+        >
+        <div class="book-info">
+            <h3>{{book.bookName}}</h3>
+            <p class="author">by {{ book.author }}</p>
+            <div class="rating-review">
+            <div class="rating">★  {{book.rating}}</div>
+            <span class="review">({{book.reviewCount}})</span>
+        </div>
+        <div class="price-section">
+        <span class="discount">₹{{ book.discountPrice }}</span>
+        <span class="original">₹{{ book.price }}</span>
+        </div>
+        
+    </div>
+    </mat-card>
+</div>
+<mat-paginator
+[length]="books.length"
+[pageSize]="pageSize"
+[pageSizeOptions]="[8, 12, 16]"
+(page)="onPageChange($event)">
+</mat-paginator>
+<div class="footer">
+    <span class="footer-text">Copyright © 2020, Bookstore Private Limited. All Rights Reserved</span>
+</div>
